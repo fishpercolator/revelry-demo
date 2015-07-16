@@ -1,2 +1,70 @@
 section
   h1 Features
+  aside.notes(data-markdown).
+    Here are some notes in **Markdown** format.
+section
+  h2 Simple config
+  p Revfile.json
+  pre
+    code(data-trim)
+      include Revfile.json
+section
+  h2 #[a(href="http://handlebarsjs.com/") Handlebars]-enabled html
+  pre
+    code(data-trim).
+      <ul>\{{#each plugins}}
+        <li>\{{this}}</li>
+      \{{/each}}</ul>
+  p ... compiles to ...
+  pre
+    code(data-trim).
+      <ul>{{#each plugins}}
+        <li>{{this}}</li>
+      {{/each}}</ul>
+section
+  h2 #[a(href="http://jade-lang.com/") Jade] templates
+  p for very concise code:
+  pre
+    code(data-trim).
+      section
+        h1 Title slide
+      section
+        h2 Agenda
+        ul
+          li.fragment Item one
+          li.fragment Another item
+section
+  h2 Custom CSS and &lt;head&gt;
+  h3 in their own files
+  p custom.css:
+  pre
+    code(data-trim).
+      span.red { color: red; }
+  p header.html:
+  pre
+    code(data-trim).
+      <meta name="keywords" content="awesome presentation">
+section
+  h2 Break project down into multiple files
+  p All .html and .jade files accessible with Handlebars partials
+  pre
+    code(data-trim).
+      &lt;section&gt;
+        &lt;h1&gt;My awesome slides&lt;/h1&gt;
+      &lt;/section&gt;
+      \{{> moreslides}}
+section
+  h2 Easily load Reveal.js plugins
+  pre
+    code(data-trim).
+      "plugins": [
+        "highlight",
+        "notes",
+        "zoom"
+      ]
+section
+  h2 More to come
+  ul
+    li.fragment Add your own themes &amp; plugins
+    li.fragment .revelryrc for common config
+    li.fragment Keep notes in a separate file
